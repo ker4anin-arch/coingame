@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Друзья — PCoin{% endblock %}
+
+{% block content %}
+<div class="friends-page">
+    <div class="invite-card">
+        <h2>Пригласи друга</h2>
+        <p>За каждого приглашённого друга ты получаешь бонус монет</p>
+        <button class="invite-btn" onclick="copyLink()">
+            <i class="fas fa-link"></i> Скопировать ссылку
+        </button>
+    </div>
+
+    <span class="friends-list-title">Твои друзья</span>
+
+    <div class="empty-state">
+        <i class="fas fa-user-plus"></i>
+        <p>Пока нет друзей</p>
+    </div>
+</div>
+
+<script>
+function copyLink() {
+    navigator.clipboard.writeText(window.location.origin).then(() => {
+        const btn = document.querySelector('.invite-btn');
+        btn.textContent = '✓ Скопировано!';
+        setTimeout(() => btn.innerHTML = '<i class="fas fa-link"></i> Скопировать ссылку', 2000);
+    });
+}
+</script>
+{% endblock %}

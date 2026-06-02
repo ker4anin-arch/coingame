@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nova+Square&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>{% block title %}PCoin{% endblock %}</title>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="level">Level: Junior</div>
-        <div class="separator-small"></div>
-        <div class="rating">Рейтинг: 15</div>
-        <div class="separator-small"></div>
-        <button class="airdrop-button" onclick="window.location.href='/airdrop'">
-            <img src="/static/images/coin.png" alt="Coin" class="coin-icon"> Airdrop
-        </button>
-    </div>
+    <div class="app-wrapper">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <div class="top-stat">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Junior</span>
+                </div>
+                <div class="divider-v"></div>
+                <div class="top-stat">
+                    <i class="fas fa-trophy"></i>
+                    <span>#15</span>
+                </div>
+            </div>
+            <a href="/airdrop" class="airdrop-btn {% if request.path == '/airdrop' %}active{% endif %}">
+                <img src="/static/images/coin.png" alt="Coin">
+                <span>Airdrop</span>
+            </a>
+        </div>
 
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
 
-    <div class="footer-menu">
-        <a href="/"><i class="fas fa-gamepad"></i> Игра</a>
-        <a href="/skills"><i class="fas fa-brain"></i> Умения</a>
-        <a href="#"><i class="fas fa-users"></i> Друзья</a>
-        <a href="#"><i class="fas fa-tasks"></i> Задания</a>
+        <nav class="footer-menu">
+            <a href="/" class="nav-item {% if request.path == '/' %}active{% endif %}">
+                <i class="fas fa-gamepad"></i>
+                <span>Игра</span>
+            </a>
+            <a href="/skills" class="nav-item {% if request.path == '/skills' %}active{% endif %}">
+                <i class="fas fa-brain"></i>
+                <span>Умения</span>
+            </a>
+            <a href="/friends" class="nav-item {% if request.path == '/friends' %}active{% endif %}">
+                <i class="fas fa-users"></i>
+                <span>Друзья</span>
+            </a>
+            <a href="/tasks" class="nav-item {% if request.path == '/tasks' %}active{% endif %}">
+                <i class="fas fa-list-check"></i>
+                <span>Задания</span>
+            </a>
+        </nav>
     </div>
-
 </body>
 </html>

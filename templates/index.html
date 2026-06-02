@@ -1,31 +1,62 @@
 {% extends 'base.html' %}
 
-{% block title %}Главная - PCoin{% endblock %}
+{% block title %}Игра — PCoin{% endblock %}
 
 {% block content %}
-    <div class="income-info">
-        <span>Доход в час</span>
-        <div class="income-amount">
-            <img src="/static/images/coin.png" alt="Coin Icon" class="coin-icon">
-            <span>50000</span>
+    <div class="home-income">
+        <span class="home-income-label">Доход в час</span>
+        <div class="home-income-value">
+            <img src="/static/images/coin.png" alt="Coin">
+            <span>50,000</span>
         </div>
     </div>
 
-    <div class="user-info">
-        <div class="coin-info">
-            <span>Всего монет</span>
-            <div class="coin-amount">
-                <img src="/static/images/coin.png" alt="Coin" class="coin-icon">
-                <span>50000</span>
-            </div>
+    <div class="coin-display">
+        <span class="coin-display-label">Всего монет</span>
+        <div class="coin-display-amount">
+            <img src="/static/images/coin.png" alt="Coin">
+            <span id="coin-count">50,000</span>
         </div>
-
-        <img src="/static/images/character.png" alt="Character" class="user-image" onclick="handleCharacterClick()">
     </div>
+
+    <div class="character-wrapper">
+        <div class="character-glow"></div>
+        <img src="/static/images/character.png" alt="Character" class="user-image" id="character" onclick="handleClick(event)">
+    </div>
+
+    <span class="click-hint">Нажми, чтобы заработать монеты</span>
 
     <script>
-    function handleCharacterClick() {
-        alert("Персонаж нажат!");
+    let coins = 50000;
+
+    function handleClick(e) {
+        const el = document.getElementById('coin-count');
+        coins += 1;
+        el.textContent = coins.toLocaleString('ru');
+
+        // Float +1 animation
+        const plus = document.createElement('span');
+        plus.textContent = '+1';
+        plus.style.cssText = `
+            position: fixed;
+            left: ${e.clientX - 10}px;
+            top: ${e.clientY - 10}px;
+            color: #fcd535;
+            font-weight: 700;
+            font-size: 18px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: floatUp 0.7s ease forwards;
+        `;
+        document.body.appendChild(plus);
+        setTimeout(() => plus.remove(), 700);
     }
     </script>
+
+    <style>
+    @keyframes floatUp {
+        0%   { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-50px); }
+    }
+    </style>
 {% endblock %}
