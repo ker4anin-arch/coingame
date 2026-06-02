@@ -1,30 +1,47 @@
 {% extends 'base.html' %}
 
+{% block title %}Airdrop — PCoin{% endblock %}
+
 {% block content %}
-<div class="airdrop-container">
-    <div class="airdrop-icon">
-        <img src="/static/images/coin.png" alt="Coin Icon">
+<div class="airdrop-page">
+    <div class="airdrop-hero">
+        <img src="/static/images/coin.png" alt="Coin" class="airdrop-coin-img">
+        <h1 class="airdrop-title">Product Coin</h1>
     </div>
 
-    <h1 class="airdrop-title">Product Coin</h1>
-    <div class="airdrop-info">
-        <p class="airdrop-label">Дата:</p>
-        <p class="airdrop-value">TBA</p>
-    </div>
-        <p class="text">Условия</p>
-    <div class="airdrop-block">
-        <span class="label">Друзей:</span>
-        <span class="value">Мин. 2, у вас 0</span>
+    <div class="airdrop-date-block">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Дата аирдропа</span>
+        <span class="tba">TBA</span>
     </div>
 
-    <div class="airdrop-block">
-        <span class="label">Product Coins:</span>
-        <span class="value">Мин. 50000, у вас 0</span>
+    <span class="conditions-title">Условия участия</span>
+
+    <div class="condition-block">
+        <div class="condition-icon"><i class="fas fa-users"></i></div>
+        <div class="condition-text">
+            <div class="condition-label">Друзья</div>
+            <div class="condition-value">Минимум 2 · У вас: 0</div>
+        </div>
+        <span class="condition-status">❌</span>
     </div>
 
-    <div class="airdrop-block">
-        <span class="label">Другое:</span>
-        <span class="value">TBA</span>
+    <div class="condition-block">
+        <div class="condition-icon"><i class="fas fa-coins"></i></div>
+        <div class="condition-text">
+            <div class="condition-label">Product Coins</div>
+            <div class="condition-value">Минимум 50,000 · У вас: 0</div>
+        </div>
+        <span class="condition-status">❌</span>
+    </div>
+
+    <div class="condition-block">
+        <div class="condition-icon"><i class="fas fa-star"></i></div>
+        <div class="condition-text">
+            <div class="condition-label">Другое</div>
+            <div class="condition-value">TBA</div>
+        </div>
+        <span class="condition-status">⏳</span>
     </div>
 </div>
 {% endblock %}

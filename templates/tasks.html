@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Задания — PCoin{% endblock %}
+
+{% block content %}
+<div class="tasks-page">
+    <h1 class="page-title">Задания</h1>
+
+    <div class="task-card">
+        <div class="task-icon"><i class="fas fa-share-alt"></i></div>
+        <div class="task-info">
+            <div class="task-name">Поделись в соцсетях</div>
+            <div class="task-reward">
+                <img src="/static/images/coin.png" alt="coin">
+                +5,000
+            </div>
+        </div>
+        <span class="task-check"><i class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <div class="task-card">
+        <div class="task-icon"><i class="fas fa-user-friends"></i></div>
+        <div class="task-info">
+            <div class="task-name">Пригласи 1 друга</div>
+            <div class="task-reward">
+                <img src="/static/images/coin.png" alt="coin">
+                +10,000
+            </div>
+        </div>
+        <span class="task-check"><i class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <div class="task-card">
+        <div class="task-icon"><i class="fas fa-brain"></i></div>
+        <div class="task-info">
+            <div class="task-name">Купи первое умение</div>
+            <div class="task-reward">
+                <img src="/static/images/coin.png" alt="coin">
+                +2,000
+            </div>
+        </div>
+        <span class="task-check done"><i class="fas fa-check-circle"></i></span>
+    </div>
+
+    <div class="task-card">
+        <div class="task-icon"><i class="fas fa-hand-pointer"></i></div>
+        <div class="task-info">
+            <div class="task-name">Нажми 100 раз</div>
+            <div class="task-reward">
+                <img src="/static/images/coin.png" alt="coin">
+                +1,000
+            </div>
+        </div>
+        <span class="task-check"><i class="fas fa-chevron-right"></i></span>
+    </div>
+</div>
+{% endblock %}
